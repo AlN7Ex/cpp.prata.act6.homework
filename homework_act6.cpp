@@ -13,7 +13,7 @@ int main()
 	char ch;
 
 	cout << "Enter something: ";
-	while((ch = cin.get()) != '@' && ch != '\n')
+	while((ch = cin.get()) != '@' && ch != EOF)
 	{
 		if (isalpha(ch))
 		{

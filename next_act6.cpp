@@ -104,6 +104,7 @@ int main()
 	members * Patrons = new members [countCommon];
 	members * GrandPatrons = new members [countGrand];
 	sortGrandPatronsAndPatrons(Donater, Patrons, GrandPatrons, N, overmoney);
+	cout << "Here5" << endl;
 
 	cout << "Grand Patrons: " << endl;
 	for (size_t index = 0; index < countGrand; ++index)
@@ -138,6 +139,7 @@ void fillDonateMembers(members * const Donater, const size_t N, const double ove
 		else
 			++*countCommon;
 	}
+	std::cout << "Here1" << std::endl;
 }
 
 void sortGrandPatronsAndPatrons(members * const Donater, members * const Patrons, members * const GrandPatrons, const size_t N, const double overmoney)
@@ -151,12 +153,15 @@ void sortGrandPatronsAndPatrons(members * const Donater, members * const Patrons
 			GrandPatrons[indexGrand].name = Donater[i].name;
 			GrandPatrons[indexGrand].money = Donater[i].money;
 			++indexGrand;
+			std::cout << "Here2" << std::endl;
 		}
 		else
 		{
 			Patrons[indexCommon].name = Donater[i].name;
 			Patrons[indexCommon].money = Donater[i].money;
 			++indexCommon;
+			std::cout << "Here3" << std::endl;
 		}
 	}
+	std::cout << "Here4" << std::endl;
 }

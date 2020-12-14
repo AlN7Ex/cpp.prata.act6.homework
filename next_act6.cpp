@@ -81,14 +81,14 @@ void taxCount(const long money, double * taxSum, tax * const Tax)
 #include <iostream>
 #include <string>
 
-struct members
+struct member
 {
 	std::string name;
 	double money;
 };
 
-void fillDonateMembers(members * const Donater, const size_t N, const double overmoney, int * countGrand, int * countCommon);
-void sortGrandPatronsAndPatrons(members * const Donater, members * const Patrons, members * const GrandPatrons, const size_t N, const double overmoney);
+void fillDonateMembers(member * const Donater, const size_t N, const double overmoney, int * countGrand, int * countCommon);
+void sortGrandPatronsAndPatrons(member * const Donater, member * const Patrons, member * const GrandPatrons, const size_t N, const double overmoney);
 int main()
 {
 	using namespace std;
@@ -99,12 +99,11 @@ int main()
 	int countGrand = 0;
 	int countCommon = 0;
 	cin >> N;
-	members * Donater = new members [N];
-	fillDonateMembers(Donater, N, overmoney, &countCommon, &countGrand);
-	members * Patrons = new members [countCommon];
-	members * GrandPatrons = new members [countGrand];
+	member * Donater = new member [N];
+	fillDonateMembers(Donater, N, overmoney, &countGrand, &countCommon);
+	member * Patrons = new member [countCommon];
+	member * GrandPatrons = new member [countGrand];
 	sortGrandPatronsAndPatrons(Donater, Patrons, GrandPatrons, N, overmoney);
-	cout << "Here5" << endl;
 
 	cout << "Grand Patrons: " << endl;
 	for (size_t index = 0; index < countGrand; ++index)
@@ -126,7 +125,7 @@ int main()
 	return 0;
 }
 
-void fillDonateMembers(members * const Donater, const size_t N, const double overmoney, int * countGrand, int * countCommon)
+void fillDonateMembers(member * const Donater, const size_t N, const double overmoney, int * countGrand, int * countCommon)
 {
 	for (size_t i = 0; i < N; ++i)
 	{
@@ -142,7 +141,7 @@ void fillDonateMembers(members * const Donater, const size_t N, const double ove
 	std::cout << "Here1" << std::endl;
 }
 
-void sortGrandPatronsAndPatrons(members * const Donater, members * const Patrons, members * const GrandPatrons, const size_t N, const double overmoney)
+void sortGrandPatronsAndPatrons(member * const Donater, member * const Patrons, member * const GrandPatrons, const size_t N, const double overmoney)
 {
 	size_t indexGrand = 0;
 	size_t indexCommon = 0;
@@ -153,15 +152,12 @@ void sortGrandPatronsAndPatrons(members * const Donater, members * const Patrons
 			GrandPatrons[indexGrand].name = Donater[i].name;
 			GrandPatrons[indexGrand].money = Donater[i].money;
 			++indexGrand;
-			std::cout << "Here2" << std::endl;
 		}
 		else
 		{
 			Patrons[indexCommon].name = Donater[i].name;
 			Patrons[indexCommon].money = Donater[i].money;
 			++indexCommon;
-			std::cout << "Here3" << std::endl;
 		}
 	}
-	std::cout << "Here4" << std::endl;
 }
